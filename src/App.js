@@ -1,26 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components';
+import DragAndDrop from './DragAndDrop';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <DragAndDrop />
+    </Container>
   );
-}
+};
+
+const Container = styled.div`
+  width: 100%;
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 0 15px;
+`;
 
 export default App;
