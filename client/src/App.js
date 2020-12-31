@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import DragAndDrop from './DragAndDrop';
+import React from "react";
+import styled from "styled-components";
+import DragAndDrop from "./DragAndDrop";
 
 const App = () => {
   return (
