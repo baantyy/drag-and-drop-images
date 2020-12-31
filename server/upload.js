@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { uploadAnyFile } = require("./aws");
-const { uploadkey } = require("./key");
+const { uploadkey, maxFileCount } = require("./key");
 
 const authHeader = (req, res, next) => {
   if (req.headers["x-pass"] && req.headers["x-pass"] === uploadkey) {
@@ -12,7 +12,9 @@ const authHeader = (req, res, next) => {
 };
 
 // localhost:3005/api/upload
-const photos = uploadAnyFile.fields([{ name: "photos", maxCount: 50 }]);
+const photos = uploadAnyFile.fields([
+  { name: "photos", maxCount: maxFileCount },
+]);
 router.post("/", authHeader, photos, (req, res) => {
   const files =
     req.files && req.files.photos
