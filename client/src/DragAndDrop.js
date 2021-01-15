@@ -21,7 +21,7 @@ class DragAndDrop extends Component {
       result: [],
       error: "",
       success: "",
-      key: "",
+      key: props.pass || "",
     };
   }
 
@@ -179,7 +179,6 @@ class DragAndDrop extends Component {
       success,
       error,
       result,
-      key,
     } = this.state;
     return (
       <Container>
@@ -210,12 +209,6 @@ class DragAndDrop extends Component {
           <InputText>Click here to add images</InputText>
         </InputWrapper>
         <SubmitWrapper>
-          <Input
-            placeholder="Say something..."
-            value={key}
-            onChange={e => this.setState({ key: e.target.value })}
-            type="password"
-          />
           <Button disabled={uploading} onClick={() => this.handleUpload()}>
             {uploading ? "Uploading..." : "Upload"}
           </Button>
@@ -256,18 +249,6 @@ class DragAndDrop extends Component {
 
 const SubmitWrapper = styled.div`
   margin: 10px 0 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const Input = styled.input`
-  border: 1px solid #ddd;
-  font-size: 13px;
-  outline: 0;
-  border-radius: 3px;
-  padding: 10px 15px;
-  width: calc(100% - 120px);
 `;
 
 const Result = styled.div`
@@ -295,7 +276,6 @@ const ResultText = styled.div`
 
 const Message = styled.div`
   margin: 30px 0 0;
-  text-align: center;
   font-size: 15px;
 `;
 
@@ -321,12 +301,12 @@ const Button = styled.button`
   border-radius: 3px;
   color: white;
   cursor: pointer;
-  margin: 0 0 0 10px;
+  margin: 0;
   display: block;
   width: 110px;
 `;
 
-const Title = styled.h1`
+const Title = styled.h2`
   font-size: 25px;
   font-weight: bold;
   text-align: center;

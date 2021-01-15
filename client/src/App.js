@@ -1,11 +1,20 @@
 import React from "react";
 import styled from "styled-components";
+
 import DragAndDrop from "./DragAndDrop";
+import MultipartUpload from "./Multipart";
 
 const App = () => {
+  const search = window.location.search;
+  const key = search
+    ? search.includes("key")
+      ? search.split("=")[1]
+      : ""
+    : "";
   return (
     <Container>
-      <DragAndDrop />
+      <DragAndDrop pass={key} />
+      <MultipartUpload pass={key} />
     </Container>
   );
 };

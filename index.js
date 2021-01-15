@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const router = require("./server/router");
 
 const app = express();
-const port = process.env.PORT || 3005;
+const port = process.env.PORT || 3001;
 
 app.use(cors()); // cross origin
 app.use(morgan("dev")); // log api on dev
